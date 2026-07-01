@@ -1,0 +1,69 @@
+# Build outputs
+qt-gui/build/
+build/
+*.exe
+*.obj
+*.o
+*.moc
+mocs_compilation_*.cpp
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.suo
+*.aps
+*.idb
+*.pdb
+*.ilk
+*.lib
+*.exp
+*.manifest
+*.res
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime data
+task_states.db
+task_states.db-*
+tasks.json
+*.log
+Logs/
+Cache/
+Translator_Cache/
+Vectors/
+outputs/
+output/
+*.npy
+*.png
+
+# Large data
+nomic-embed-text-v1.5/
+model/
+*.zip
+backup_*
+*.gsqk
+*.dat
+*.cfg
+
+# Temp
+*.tmp
+*.bak
