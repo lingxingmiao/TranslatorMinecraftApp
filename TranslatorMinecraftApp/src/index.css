@@ -1,0 +1,156 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --radius: 0.5rem;
+  --sidebar-background: hsl(var(--sidebar-background));
+  --sidebar-foreground: hsl(var(--sidebar-foreground));
+  --sidebar-primary: hsl(var(--sidebar-primary));
+  --sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --sidebar-accent: hsl(var(--sidebar-accent));
+  --sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --sidebar-border: hsl(var(--sidebar-border));
+  --sidebar-ring: hsl(var(--sidebar-ring));
+}
+
+:root {
+  --background: 220 30% 6%;
+  --foreground: 210 20% 85%;
+  --card: 220 28% 10%;
+  --card-foreground: 210 20% 85%;
+  --popover: 220 28% 10%;
+  --popover-foreground: 210 20% 85%;
+  --primary: 252 60% 65%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 25% 16%;
+  --secondary-foreground: 210 20% 85%;
+  --muted: 220 25% 16%;
+  --muted-foreground: 210 15% 60%;
+  --accent: 252 40% 55%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 25% 18%;
+  --input: 220 25% 18%;
+  --ring: 252 60% 65%;
+  --sidebar-background: 220 28% 8%;
+  --sidebar-foreground: 210 20% 85%;
+  --sidebar-primary: 252 60% 65%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 220 25% 14%;
+  --sidebar-accent-foreground: 210 20% 85%;
+  --sidebar-border: 220 25% 16%;
+  --sidebar-ring: 252 60% 65%;
+  --glass-blur: 10px;
+}
+
+/* ==================== Acrylic mode (no image) ==================== */
+html[data-acrylic="true"] body,
+html[data-acrylic="true"] #root {
+  background-color: transparent !important;
+}
+html[data-acrylic="true"] .bg-background {
+  background-color: oklch(1 0 0 / 0.15) !important;
+}
+html[data-acrylic="true"].dark .bg-background {
+  background-color: oklch(0.145 0 0 / 0.25) !important;
+}
+html[data-acrylic="true"] .bg-sidebar-background {
+  background-color: oklch(1 0 0 / 0.12) !important;
+}
+html[data-acrylic="true"].dark .bg-sidebar-background {
+  background-color: oklch(0.145 0 0 / 0.18) !important;
+}
+html[data-acrylic="true"] [data-slot="card"],
+html[data-acrylic="true"] .glass-target {
+  background-color: oklch(1 0 0 / 0.35) !important;
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+}
+html[data-acrylic="true"].dark [data-slot="card"],
+html[data-acrylic="true"].dark .glass-target {
+  background-color: oklch(0.145 0 0 / 0.45) !important;
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+}
+html[data-acrylic="true"] [role="dialog"] > div:last-child {
+  background-color: oklch(1 0 0 / 0.25) !important;
+  backdrop-filter: blur(calc(var(--glass-blur) + 6px)) saturate(180%);
+}
+html[data-acrylic="true"].dark [role="dialog"] > div:last-child {
+  background-color: oklch(0.145 0 0 / 0.35) !important;
+  backdrop-filter: blur(calc(var(--glass-blur) + 6px)) saturate(180%);
+}
+
+/* ==================== Image background + glass mode ==================== */
+html[data-bg-enabled="true"] body,
+html[data-bg-enabled="true"] #root {
+  background-color: transparent !important;
+}
+html[data-bg-enabled="true"] .bg-background {
+  background-color: oklch(1 0 0 / 0.12) !important;
+}
+html[data-bg-enabled="true"].dark .bg-background {
+  background-color: oklch(0 0 0 / 0.2) !important;
+}
+html[data-bg-enabled="true"] .bg-sidebar-background {
+  background-color: oklch(1 0 0 / 0.1) !important;
+}
+html[data-bg-enabled="true"].dark .bg-sidebar-background {
+  background-color: oklch(0 0 0 / 0.15) !important;
+}
+html[data-bg-enabled="true"] [data-slot="card"],
+html[data-bg-enabled="true"] .glass-target {
+  background-color: oklch(1 0 0 / 0.55) !important;
+  backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+}
+html[data-bg-enabled="true"].dark [data-slot="card"],
+html[data-bg-enabled="true"].dark .glass-target {
+  background-color: oklch(0 0 0 / 0.55) !important;
+  backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+}
+html[data-bg-enabled="true"] [role="dialog"] > div:last-child {
+  background-color: oklch(1 0 0 / 0.4) !important;
+  backdrop-filter: blur(calc(var(--glass-blur) + 4px)) saturate(150%);
+}
+html[data-bg-enabled="true"].dark [role="dialog"] > div:last-child {
+  background-color: oklch(0 0 0 / 0.45) !important;
+  backdrop-filter: blur(calc(var(--glass-blur) + 4px)) saturate(150%);
+}
+
+/* ==================== Scrollbar & base ==================== */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: hsl(var(--sidebar-background)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.5); }
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  margin: 0; padding: 0; overflow: hidden;
+  user-select: none; -webkit-user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.font-mono-log {
+  font-family: "Cascadia Code", "Fira Code", "JetBrains Mono", "Consolas", monospace;
+}
